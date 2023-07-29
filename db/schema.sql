@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS quizler_db;
+
+CREATE DATABASE quizler_db;
