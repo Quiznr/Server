@@ -9,7 +9,14 @@ const methodOverride = require("method-override");
 const sequelize = require("./config/connection");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "https://quiznr-b1865f6950cd.herokuapp.com/",
+    "http://localhost:3000",
+  ],
+};
+
+app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3002;
 
 const sess = {
