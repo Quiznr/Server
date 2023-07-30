@@ -7,16 +7,10 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const methodOverride = require("method-override");
 
 const sequelize = require("./config/connection");
+const cors = require("cors"); // Require the cors module
 
 const app = express();
-const corsOptions = {
-  origin: [
-    "https://quiznr-b1865f6950cd.herokuapp.com/",
-    "http://localhost:3000",
-  ],
-};
 
-app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3002;
 
 const sess = {
@@ -36,6 +30,8 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
+
+app.use(cors());
 
 app.use(routes);
 
