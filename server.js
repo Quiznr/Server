@@ -5,6 +5,7 @@ const routes = require("./controllers");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const methodOverride = require("method-override");
+const cors = require("cors");
 
 const sequelize = require("./config/connection");
 
@@ -32,6 +33,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 
 app.use(routes);
+
+const allowedOrigins = ["http://localhost:3000"];
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000"], // Allow requests from this origin
+    credentials: true, // Allow cookies to be included in the requests
+  })
+);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
