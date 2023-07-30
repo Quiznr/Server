@@ -38,8 +38,13 @@ const allowedOrigins = ["http://localhost:3000"];
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], // Allow requests from this origin
-    credentials: true, // Allow cookies to be included in the requests
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
 
