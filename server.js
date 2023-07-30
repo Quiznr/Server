@@ -9,6 +9,7 @@ const methodOverride = require("method-override");
 const sequelize = require("./config/connection");
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3002;
 
 const sess = {
@@ -28,8 +29,6 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
-
-app.use(cors());
 
 app.use(routes);
 
