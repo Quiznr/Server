@@ -1,11 +1,10 @@
-path = require("path");
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const methodOverride = require("method-override");
-const cors = require("cors");
 
 const sequelize = require("./config/connection");
 
@@ -25,24 +24,24 @@ const sess = {
 };
 
 app.use(session(sess));
-
 app.use(methodOverride("_method"));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 
 app.use(routes);
 
-const allowedOrigins = ["http://localhost:3000"];
-
-app.use(
-  cors({
-    origin: "*", // Allow requests from any origin
-    credentials: true, // Allow cookies to be included in the requests
-  })
-);
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
+});
+
+// Manually set the CORS headers to allow any origin
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
