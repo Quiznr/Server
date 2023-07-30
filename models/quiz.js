@@ -16,7 +16,6 @@ Quiz.init(
       allowNull: false,
       unique: true,
       validate: {
-        isAlphanumeric: true,
         len: [4, 16],
       },
     },
@@ -25,16 +24,13 @@ Quiz.init(
       allowNull: true,
       unique: true,
       validate: {
-        isAlphanumeric: true,
         len: [4, 16],
       },
     },
     quiz_category: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
-        isAlphanumeric: true,
         len: [4, 16],
       },
     },
