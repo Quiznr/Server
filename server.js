@@ -36,7 +36,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:3000", // Allow requests from localhost during development
+  "https://quizner-backend-836f3d753759.herokuapp.com", // Allow requests from your live frontend
+];
+
+// CORS middleware configuration
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Check if the request origin is in the allowed origins list or if it's undefined (allow requests without an Origin header)
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Set the Access-Control-Allow-Credentials header to true
+  })
+);
 
 app.use(routes);
 
