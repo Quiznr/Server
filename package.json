@@ -1,7 +1,7 @@
 {
   "name": "quiz",
   "version": "0.1.0",
-  "proxy": "http://localhost:3002",
+  "proxy": "https://quizner-backend-836f3d753759.herokuapp.com",
   "private": true,
   "dependencies": {
     "bcrypt": "^5.1.0",
