@@ -25,6 +25,11 @@ const sess = {
   }),
 };
 
+app.use((req, res, next) => {
+  console.log("Request Headers:", req.headers);
+  next();
+});
+
 app.use(session(sess));
 app.use(methodOverride("_method"));
 app.use(express.json());
