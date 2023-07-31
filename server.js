@@ -11,8 +11,6 @@ const cors = require("cors"); // Require the cors module
 
 const app = express();
 
-console.log("Loading");
-
 const allowedOrigins = [
   "http://localhost:3000", // Allow requests from localhost during development
   "https://quiznr-b1865f6950cd.herokuapp.com/", // Replace this with your actual live frontend domain
