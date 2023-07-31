@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 const allowedOrigins = [
   "http://localhost:3000", // Allow requests from localhost during development
-  "https://quizner-backend-836f3d753759.herokuapp.com", // Allow requests from your live frontend
+  "https://quizner-backend-836f3d753759.herokuapp.com/home", // Allow requests from your live frontend
 ];
 
 // CORS middleware configuration
