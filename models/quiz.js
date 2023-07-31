@@ -38,14 +38,6 @@ Quiz.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    quiz_score: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    quiz_high_score: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
   },
   {
     sequelize,

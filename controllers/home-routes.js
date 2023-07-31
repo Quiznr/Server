@@ -21,14 +21,8 @@ router.post("/home", async (req, res) => {
   console.log("Hello123");
   try {
     // Assuming you have the required data for the new quiz in the request body
-    const {
-      quiz_name,
-      quiz_description,
-      quiz_category,
-      quiz_difficulty,
-      quiz_score,
-      quiz_high_score,
-    } = req.body;
+    const { quiz_name, quiz_description, quiz_category, quiz_difficulty } =
+      req.body;
 
     // Create the new quiz in the database using the Quiz model
     const newQuiz = await Quiz.create({
