@@ -25,8 +25,6 @@ const sess = {
   }),
 };
 
-app.set("host", "https://quiznr-b1865f6950cd.herokuapp.com/");
-
 app.use(session(sess));
 app.use(methodOverride("_method"));
 app.use(express.json());
