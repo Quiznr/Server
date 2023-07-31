@@ -10,6 +10,7 @@ router.get("/home", async (req, res) => {
 
     // Send the users as a JSON response
     res.json(quizzes);
+    res.json({ message: "Hello" });
   } catch (error) {
     // Handle any errors that might occur during the database query or processing
     console.error("Error fetching users:", error);
