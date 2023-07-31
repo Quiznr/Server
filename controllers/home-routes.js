@@ -9,7 +9,7 @@ router.get("/home", async (req, res) => {
     const quizzes = await Quiz.findAll();
 
     // Send the users as a JSON response
-    res.json(req.headers);
+    res.json(quizzes);
   } catch (error) {
     // Handle any errors that might occur during the database query or processing
     console.error("Error fetching users:", error);
