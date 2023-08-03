@@ -26,8 +26,8 @@ router.post("/home", async (req, res) => {
       quiz_description,
       quiz_category,
       quiz_difficulty,
-      quiz_score,
-      quiz_high_score,
+      // quiz_score,
+      // quiz_high_score,
     } = req.body;
 
     // Create the new quiz in the database using the Quiz model
@@ -36,8 +36,8 @@ router.post("/home", async (req, res) => {
       quiz_description,
       quiz_category,
       quiz_difficulty,
-      quiz_score,
-      quiz_high_score,
+      // quiz_score,
+      // quiz_high_score,
     });
 
     // Send the newly created quiz as a JSON response
