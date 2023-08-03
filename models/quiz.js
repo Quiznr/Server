@@ -30,9 +30,6 @@ Quiz.init(
     quiz_category: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [4, 16],
-      },
     },
     quiz_difficulty: {
       type: DataTypes.STRING,
