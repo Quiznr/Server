@@ -29,6 +29,7 @@ Quiz.init(
     },
     quiz_category: {
       type: DataTypes.STRING,
+      unique: false,
       allowNull: false,
     },
     quiz_difficulty: {
