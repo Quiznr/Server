@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Quiz } = require("../models");
 
 // GET all users for homepage
-router.get("/", async (req, res) => {
+router.get("/home", async (req, res) => {
   console.log("Hello123");
   try {
     // Assuming you have a method to fetch all users from your User model
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/home", async (req, res) => {
   console.log("Hello123");
   try {
     // Assuming you have the required data for the new quiz in the request body
