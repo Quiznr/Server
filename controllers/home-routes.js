@@ -44,6 +44,7 @@ router.post("/home", async (req, res) => {
 router.get("/quiz/:id", async (req, res) => {
   try {
     const quizId = req.params.id;
+    console.log(quizId);
 
     // Retrieve the quiz by its ID along with its associated questions
     const quiz = await Quiz.findByPk(quizId, {
