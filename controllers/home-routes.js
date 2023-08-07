@@ -41,7 +41,7 @@ router.post("/home", async (req, res) => {
   }
 });
 
-router.get("home/quiz/:id", async (req, res) => {
+router.get("/quiz/:id", async (req, res) => {
   try {
     const quizId = req.params.id;
     console.log("Hello");
