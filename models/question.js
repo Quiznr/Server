@@ -39,6 +39,14 @@ Question.init(
         },
       },
     },
+    quiz_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "quiz", // This should match the table name of the Quiz model
+        key: "id",
+      },
+    },
   },
   {
     sequelize,

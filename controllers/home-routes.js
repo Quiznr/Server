@@ -41,4 +41,25 @@ router.post("/home", async (req, res) => {
   }
 });
 
+router.get("/quiz/:id", async (req, res) => {
+  try {
+    const quizId = req.params.id;
+
+    // Retrieve the quiz by its ID along with its associated questions
+    const quiz = await Quiz.findByPk(quizId, {
+      include: "questions", // Make sure your association name is correct
+    });
+
+    if (!quiz) {
+      return res.status(404).json({ error: "Quiz not found" });
+    }
+
+    // Send the quiz data to the client
+    res.json(quiz);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;
