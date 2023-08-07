@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Quiz } = require("../models");
 
 // GET all users for homepage
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
   console.log("Hello123");
   try {
     // Assuming you have a method to fetch all users from your User model
@@ -17,7 +17,7 @@ router.get("/home", async (req, res) => {
   }
 });
 
-router.post("/home", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("Hello123");
   try {
     // Assuming you have the required data for the new quiz in the request body
@@ -44,7 +44,7 @@ router.post("/home", async (req, res) => {
 router.get("/quiz/:id", async (req, res) => {
   try {
     const quizId = req.params.id;
-    console.log(quizId);
+    console.log("Hello");
 
     // Retrieve the quiz by its ID along with its associated questions
     const quiz = await Quiz.findByPk(quizId, {
